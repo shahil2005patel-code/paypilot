@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PayPilot | Smart Cash Flow for Students & Young Professionals</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f6f8fb;
+      color: #152033;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      padding: 28px 8%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 70px;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 45px;
+      align-items: center;
+      padding-bottom: 80px;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #dbeafe;
+      margin-bottom: 28px;
+      max-width: 620px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #22c55e;
+      color: #052e16;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .hero-card {
+      background: white;
+      color: #152033;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+    }
+
+    .hero-card h3 {
+      margin-bottom: 18px;
+      color: #0f172a;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .metric:last-child {
+      border-bottom: none;
+    }
+
+    .metric span:first-child {
+      color: #64748b;
+    }
+
+    .metric span:last-child {
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    section {
+      padding: 72px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 42px auto;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+
+    .section-title p {
+      color: #64748b;
+      font-size: 1.05rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+
+    .card p {
+      color: #64748b;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dcfce7;
+      color: #166534;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    .demo-section {
+      background: #0f172a;
+      color: white;
+    }
+
+    .demo-section .section-title h2,
+    .demo-section .section-title p {
+      color: white;
+    }
+
+    .demo-box {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      color: #152033;
+      border-radius: 22px;
+      padding: 32px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    .demo-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .result-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .result-card h4 {
+      color: #64748b;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .result-card p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    .recommendation {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 14px;
+      background: #eff6ff;
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+
+    .pricing {
+      background: white;
+    }
+
+    .price-card {
+      text-align: center;
+    }
+
+    .price {
+      font-size: 2.3rem;
+      font-weight: bold;
+      color: #0f172a;
+      margin: 12px 0;
+    }
+
+    footer {
+      background: #020617;
+      color: #cbd5e1;
+      padding: 34px 8%;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid-3,
+      .input-grid,
+      .demo-results {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 18px;
+        align-items: flex-start;
+      }
+
+      .nav-links a {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">PayPilot</div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <h1>Cash flow planning for people starting real life.</h1>
+        <p>PayPilot helps students and young professionals manage bills, paychecks, subscriptions, and savings goals before their bank balance gets too low.</p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#demo">Try the Demo</a>
+          <a class="btn btn-secondary" href="#features">See Features</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Monthly Snapshot</h3>
+        <div class="metric"><span>Expected income</span><span>$2,450</span></div>
+        <div class="metric"><span>Bills due soon</span><span>$1,120</span></div>
+        <div class="metric"><span>Safe-to-spend</span><span>$640</span></div>
+        <div class="metric"><span>Savings path</span><span>On Track</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section id="features">
+    <div class="section-title">
+      <h2>The problem PayPilot solves</h2>
+      <p>A lot of budgeting apps show what already happened. PayPilot focuses on what is about to happen, so users can avoid overdrafts, late fees, and surprise subscription charges.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="badge">Forecasting</span>
+        <h3>Future Balance Alerts</h3>
+        <p>PayPilot estimates your balance after upcoming bills, subscriptions, and paychecks so you can see financial pressure before it happens.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Automation</span>
+        <h3>Smart Bill Calendar</h3>
+        <p>The app organizes rent, car payments, utilities, credit cards, and subscriptions into one simple timeline.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Decision Support</span>
+        <h3>Safe-to-Spend Number</h3>
+        <p>Instead of only showing total balance, PayPilot shows how much money is actually safe to spend after required expenses.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h2>Why the idea is different</h2>
+      <p>Most personal finance apps focus on tracking categories. PayPilot is built around short-term cash flow decisions: “Can I afford this today without hurting myself next week?”</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Built for beginners</h3>
+        <p>The app avoids complicated finance terms and gives clear recommendations that normal people can understand quickly.</p>
+      </div>
+      <div class="card">
+        <h3>Designed for irregular income</h3>
+        <p>PayPilot works well for students, interns, gig workers, and hourly employees who do not always get the same paycheck.</p>
+      </div>
+      <div class="card">
+        <h3>Action-first layout</h3>
+        <p>The main goal is not just reporting numbers. The app gives users a suggested action based on their cash flow risk.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section" id="demo">
+    <div class="section-title">
+      <h2>Demo Application</h2>
+      <p>Try the toy cash flow planner below. Enter your monthly numbers and PayPilot will estimate your safe-to-spend amount.</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="input-grid">
+        <div>
+          <label for="income">Monthly Income ($)</label>
+          <input id="income" type="number" value="2400" />
+        </div>
+        <div>
+          <label for="bills">Monthly Bills ($)</label>
+          <input id="bills" type="number" value="1250" />
+        </div>
+        <div>
+          <label for="savings">Savings Goal ($)</label>
+          <input id="savings" type="number" value="300" />
+        </div>
+      </div>
+
+      <button class="btn btn-primary" onclick="calculateCashFlow()">Calculate My Plan</button>
+
+      <div class="demo-results">
+        <div class="result-card">
+          <h4>Safe-to-Spend</h4>
+          <p id="safeSpend">$850</p>
+        </div>
+        <div class="result-card">
+          <h4>Daily Budget</h4>
+          <p id="dailyBudget">$28</p>
+        </div>
+        <div class="result-card">
+          <h4>Status</h4>
+          <p id="status">Healthy</p>
+        </div>
+      </div>
+
+      <div class="recommendation" id="recommendation">
+        Your cash flow looks healthy. You can spend about $28 per day while still covering bills and savings.
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="section-title">
+      <h2>Simple pricing</h2>
+      <p>PayPilot would use a freemium model so users can start without needing to pay upfront.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card price-card">
+        <h3>Starter</h3>
+        <div class="price">Free</div>
+        <p>Basic budget forecast, bill calendar, and safe-to-spend estimate.</p>
+      </div>
+      <div class="card price-card">
+        <h3>Plus</h3>
+        <div class="price">$4/mo</div>
+        <p>Subscription tracking, custom alerts, and weekly spending reports.</p>
+      </div>
+      <div class="card price-card">
+        <h3>Campus</h3>
+        <div class="price">B2B</div>
+        <p>Universities can offer PayPilot as a financial wellness tool for students.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>PayPilot — A student-built FinTech startup concept for smarter short-term money decisions.</p>
+  </footer>
+
+  <script>
+    function calculateCashFlow() {
+      const income = Number(document.getElementById('income').value) || 0;
+      const bills = Number(document.getElementById('bills').value) || 0;
+      const savings = Number(document.getElementById('savings').value) || 0;
+
+      const safeSpend = income - bills - savings;
+      const dailyBudget = safeSpend / 30;
+
+      document.getElementById('safeSpend').textContent = '$' + safeSpend.toFixed(0);
+      document.getElementById('dailyBudget').textContent = '$' + dailyBudget.toFixed(0);
+
+      let status = '';
+      let recommendation = '';
+
+      if (safeSpend >= 500) {
+        status = 'Healthy';
+        recommendation = 'Your cash flow looks healthy. You can spend about $' + dailyBudget.toFixed(0) + ' per day while still covering bills and savings.';
+      } else if (safeSpend >= 0) {
+        status = 'Tight';
+        recommendation = 'Your cash flow is tight. Try lowering flexible spending or reducing your savings goal slightly for this month.';
+      } else {
+        status = 'At Risk';
+        recommendation = 'Your plan is short by $' + Math.abs(safeSpend).toFixed(0) + '. PayPilot would recommend cutting expenses, delaying non-essential spending, or adjusting your savings goal.';
+      }
+
+      document.getElementById('status').textContent = status;
+      document.getElementById('recommendation').textContent = recommendation;
+    }
+  </script>
+</body>
+</html>
+3
